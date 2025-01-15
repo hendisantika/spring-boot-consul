@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,5 +47,10 @@ public class EmployeeController {
     @GetMapping("/{id}")
     public Employee getEmployee(@PathVariable("id") String employeeId) {
         return employeeService.getEmployeeId(employeeId);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteEmployee(@PathVariable("id") String employeeId) {
+        return employeeService.deleteEmployee(employeeId);
     }
 }
