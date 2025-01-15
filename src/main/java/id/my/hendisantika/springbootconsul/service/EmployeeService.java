@@ -1,5 +1,6 @@
 package id.my.hendisantika.springbootconsul.service;
 
+import id.my.hendisantika.springbootconsul.entity.Employee;
 import id.my.hendisantika.springbootconsul.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,4 +19,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class EmployeeService {
     private final EmployeeRepository employeeRepository
+
+    public Employee save(Employee employee) {
+        return employeeRepository.save(employee);
+    }
 }
