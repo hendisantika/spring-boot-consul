@@ -18,9 +18,14 @@ import org.springframework.stereotype.Service;
 @Service("employeeService")
 @RequiredArgsConstructor
 public class EmployeeService {
-    private final EmployeeRepository employeeRepository
+    private final EmployeeRepository employeeRepository;
 
     public Employee save(Employee employee) {
         return employeeRepository.save(employee);
     }
+
+    public Employee getEmployeeId(String employeeId) {
+        return employeeRepository.getEmployeeId(employeeId);
+    }
+
 }
