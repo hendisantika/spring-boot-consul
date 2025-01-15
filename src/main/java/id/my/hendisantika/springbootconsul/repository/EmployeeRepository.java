@@ -24,4 +24,9 @@ public class EmployeeRepository {
         dynamoDBMapper.save(employee);
         return employee;
     }
+
+    public Employee getEmployeeId(String employeeId) {
+        return dynamoDBMapper.load(Employee.class, employeeId);
+    }
+
 }
