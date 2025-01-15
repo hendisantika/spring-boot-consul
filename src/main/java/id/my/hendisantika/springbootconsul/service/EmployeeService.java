@@ -28,4 +28,7 @@ public class EmployeeService {
         return employeeRepository.getEmployeeId(employeeId);
     }
 
+    public String deleteEmployee(String employeeId) {
+        return employeeRepository.deleteEmployee(employeeId);
+    }
 }
