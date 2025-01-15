@@ -1,0 +1,17 @@
+spring:
+  application.name: spring-boot-consul
+  cloud:
+    consul:
+      config:
+        fail-fast: true
+      host: localhost
+      port: 8500
+  config:
+    import:
+      consul:
+  application:
+    name: api-emp-data
+
+server.port: 8080
+# Specifies that the application should import its configuration from Consul.
+
