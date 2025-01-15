@@ -1,6 +1,9 @@
 package id.my.hendisantika.springbootconsul.repository;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBSaveExpression;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.amazonaws.services.dynamodbv2.model.ExpectedAttributeValue;
 import id.my.hendisantika.springbootconsul.entity.Employee;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -34,4 +37,10 @@ public class EmployeeRepository {
         dynamoDBMapper.delete(emp);
         return "Employee Deleted";
     }
+
+    public String updateEmployee(String employeeId, Employee empObj) {
+        dynamoDBMapper.save(empObj, new DynamoDBSaveExpression().withExpectedEntry(employeeId, new ExpectedAttributeValue(new AttributeValue().withS(employeeId))));
+        return employeeId;
+    }
+
 }
