@@ -29,4 +29,9 @@ public class EmployeeRepository {
         return dynamoDBMapper.load(Employee.class, employeeId);
     }
 
+    public String deleteEmployee(String employeeId) {
+        Employee emp = dynamoDBMapper.load(Employee.class, employeeId);
+        dynamoDBMapper.delete(emp);
+        return "Employee Deleted";
+    }
 }
