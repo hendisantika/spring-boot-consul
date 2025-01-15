@@ -1,6 +1,7 @@
 package id.my.hendisantika.springbootconsul.repository;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import id.my.hendisantika.springbootconsul.entity.Employee;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -18,4 +19,9 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class EmployeeRepository {
     private final DynamoDBMapper dynamoDBMapper;
+
+    public Employee save(Employee employee) {
+        dynamoDBMapper.save(employee);
+        return employee;
+    }
 }
