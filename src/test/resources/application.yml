@@ -1,0 +1,10 @@
+# Test configuration: shadows src/main/resources/application.yml so tests run without a Consul agent.
+spring:
+  application:
+    name: employee-service
+  cloud:
+    consul:
+      enabled: false
+  docker:
+    compose:
+      enabled: false
